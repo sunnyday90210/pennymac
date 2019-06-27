@@ -29,11 +29,41 @@ function createData(
 }
 
 const rows = [
-  createData('Sally Smith', 159, 6.0, 24, 4.0),
-  createData('Tom Jones', 237, 9.0, 37, 4.3),
-  createData('Jonny Carson', 262, 16.0, 24, 6.0),
-  createData('Morine Williamson', 305, 3.7, 67, 4.3)
+  createData(
+    'Sally Smith',
+    '400,000',
+    '300,000',
+    'Lower My Monthly Payment',
+    'Emailed'
+  ),
+  createData(
+    'Tom Jones',
+    '500,000',
+    '200,000',
+    'Lock in A Fixed Rate',
+    'Need More Info'
+  ),
+  createData(
+    'Jonny Carson',
+    '600,000',
+    '100,000',
+    'Cash Out Equity',
+    'Follow Up'
+  ),
+  createData(
+    'Morine Williamson',
+    '700,000',
+    '800,000',
+    'Pay Off My Mortgage Faster',
+    'Emailed'
+  )
 ];
+
+// const status = {
+//   emailed: 'green',
+//   need: 'red',
+//   followUp: 'blue'
+// };
 
 export default function SimpleTable() {
   const classes = useStyles();
@@ -43,11 +73,46 @@ export default function SimpleTable() {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Customer Name</TableCell>
-            <TableCell>Property Value</TableCell>
-            <TableCell>Current Loan</TableCell>
-            <TableCell>Benefit</TableCell>
-            <TableCell>Status</TableCell>
+            <TableCell
+              style={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: 'black'
+              }}>
+              Customer Name
+            </TableCell>
+            <TableCell
+              style={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: 'black'
+              }}>
+              Property Value
+            </TableCell>
+            <TableCell
+              style={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: 'black'
+              }}>
+              Current Loan
+            </TableCell>
+            <TableCell
+              style={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: 'black'
+              }}>
+              Benefit
+            </TableCell>
+            <TableCell
+              style={{
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                color: 'black'
+              }}>
+              Status
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -56,8 +121,8 @@ export default function SimpleTable() {
               <TableCell component="th" scope="row">
                 {row.custName}
               </TableCell>
-              <TableCell>{row.estValProperty}</TableCell>
-              <TableCell>{row.currentlyOweLoan}</TableCell>
+              <TableCell>${row.estValProperty}</TableCell>
+              <TableCell>${row.currentlyOweLoan}</TableCell>
               <TableCell>{row.benefit}</TableCell>
               <TableCell>{row.status}</TableCell>
             </TableRow>
